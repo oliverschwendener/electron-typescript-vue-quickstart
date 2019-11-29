@@ -1,0 +1,35 @@
+name: Continous Delivery Workflow
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    name: Build on ${{ matrix.os }} with Node ${{ matrix.node }}
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Show exact node version
+        run: node --version
+      - name: Install dependencies
+        run: yarn install
+      - name: Lint TypeScript files
+        run: yarn lint
+      - name: Run tests
+        run: yarn test
+      - name: Bundle files
+        run: yarn bundle
+        env:
+          NODE_ENV: production
+      - name: Publish new release
+        run: yarn package:publish
+        env:
+          CI: true
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
