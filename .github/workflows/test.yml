@@ -1,0 +1,13 @@
+name: Build
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    name: Build on ${{ matrix.os }}
+    steps:
+      - name: Say hello
+        run: echo 'hello'

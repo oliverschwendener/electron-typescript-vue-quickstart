@@ -1,0 +1,46 @@
+{
+  "name": "electron-typescript-vue-quickstart",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oliverschwendener/electron-typescript-vue-quickstart"
+  },
+  "description": "Electron Typescript Vue Quickstart",
+  "keywords": [
+    "electron",
+    "typescript",
+    "vue",
+    "quickstart"
+  ],
+  "main": "./bundle/main.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/tslint --project tsconfig.json --config tslint.json",
+    "test": "./node_modules/.bin/jest --config jest.json --silent .",
+    "bundle": "./node_modules/.bin/webpack",
+    "start": "./node_modules/.bin/electron .",
+    "package": "node_modules/.bin/electron-builder --config electron-builder-config.yml",
+    "package:publish": "yarn package --publish always"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "css-loader": "^3.2.0",
+    "electron": "^7.1.2",
+    "electron-builder": "^21.2.0",
+    "file-loader": "^5.0.2",
+    "jest": "^24.9.0",
+    "style-loader": "^1.0.1",
+    "ts-jest": "^24.2.0",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2",
+    "vue-loader": "^15.7.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}
