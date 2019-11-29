@@ -7,27 +7,48 @@
 
 ## Development
 
-1. Clone Repo
-2. Install dependencies
+### Install dependencies
 
-    ```
-    $ yarn
-    ```
+```
+$ yarn
+```
 
-3. Bundle files
+### Bundle files
 
-    ```
-    $ yarn bundle
-    ```
+```
+$ yarn bundle
+```
 
-4. Start app
+> If environment variable NODE_ENV is set to production a production build will be triggered
 
-    ```
-    $ yarn start
-    ```
+> Add `--watch` to watch the source files and trigger a build on change
 
-## Run tests
+### Lint TypeScript files
+
+```
+$ yarn lint
+```
+
+### Run tests
 
 ```
 $ yarn test
+```
+
+### Start app
+
+```
+$ yarn start
+```
+
+### Package app
+
+```
+$ yarn package
+```
+
+### Release e new version to GitHub
+
+```
+$ yarn package:publish
 ```

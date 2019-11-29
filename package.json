@@ -6,6 +6,11 @@
     "type": "git",
     "url": "https://github.com/oliverschwendener/electron-typescript-vue-quickstart"
   },
+  "author": {
+    "email": "oliver.schwendener@hotmail.com",
+    "name": "Oliver Schwendener",
+    "url": "https://github.com/oliverschwendener"
+  },
   "description": "Electron Typescript Vue Quickstart",
   "keywords": [
     "electron",
