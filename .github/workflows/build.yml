@@ -6,16 +6,18 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
+        node_version: ['12.x']
+
     runs-on: ${{ matrix.os }}
-    name: Build on ${{ matrix.os }} with Node ${{ matrix.node }}
+    name: Build on ${{ matrix.os }} with Node ${{ matrix.node_version }}
     steps:
       - name: Checkout current commit/branch/tag
         uses: actions/checkout@v1
 
-      - name: Setup Node 12.x
+      - name: Setup Node ${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: ${{ matrix.node_version }}
 
       - name: Show exact node version
         run: node --version
