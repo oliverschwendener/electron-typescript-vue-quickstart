@@ -55,7 +55,7 @@ const rendererConfig = {
             {
                 test: /\.css$/,
                 use: [
-                    "vue-style-loader",
+                    "style-loader",
                     "css-loader"
                 ]
             },
@@ -69,6 +69,7 @@ const rendererConfig = {
     },
     resolve: {
         alias: {
+            "@": path.join(__dirname, "src", "renderer"),
             "vue$": "vue/dist/vue.esm.js"
         },
         extensions: [".ts", ".js"]
