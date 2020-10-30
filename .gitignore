@@ -1,4 +1,5 @@
 .vscode/launch.json
+.vscode/settings.json
 bundle/
 dist/
 .DS_Store
