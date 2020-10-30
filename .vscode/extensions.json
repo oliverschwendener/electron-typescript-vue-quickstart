@@ -1,7 +1,8 @@
 {
     "recommendations": [
-        "octref.vetur",
-        "ms-vscode.vscode-typescript-tslint-plugin",
-        "msjsdiag.debugger-for-chrome"
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "msjsdiag.debugger-for-chrome",
+        "octref.vetur"
     ]
 }
