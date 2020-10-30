@@ -5,13 +5,9 @@
     "lib": ["dom", "es2017"],
     "sourceMap": true,
     "strict": true,
-    "outDir": "./bundle/main",
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "moduleResolution": "node"
-  },
-  "include": [
-    "./src/**/*.ts"
-  ]
+  }
 }
