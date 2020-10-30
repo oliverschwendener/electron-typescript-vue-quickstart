@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{ message }}
+        {{ message }}
     </div>
 </template>
 
@@ -10,8 +10,8 @@ import Vue from "vue";
 export default Vue.extend({
     data() {
         return {
-            message: "Hello world"
-        }
-    } 
+            message: "Hello world",
+        };
+    },
 });
 </script>

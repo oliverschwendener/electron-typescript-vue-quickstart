@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HelloWorld/>
+        <HelloWorld />
     </div>
 </template>
 
@@ -16,16 +16,18 @@ export default Vue.extend({
 </script>
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
 
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        min-width: 100vw;
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
 </style>
