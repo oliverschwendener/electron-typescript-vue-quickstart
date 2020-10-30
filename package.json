@@ -20,7 +20,7 @@
     ],
     "main": "./bundle/main.js",
     "scripts": {
-        "lint": "./node_modules/.bin/eslint 'src/**/*{ts,vue}'",
+        "lint": "./node_modules/.bin/eslint \"src/**/*{ts,vue}\"",
         "test": "./node_modules/.bin/jest --config jest.json --silent .",
         "bundle": "./node_modules/.bin/webpack",
         "start": "./node_modules/.bin/electron .",
