@@ -8,80 +8,103 @@ const devtool = isProductionBuild ? undefined : "source-map";
 
 console.log(`Build mode: ${mode}`);
 
-const mainConfig = {
-    entry: path.join(__dirname, "src", "main", "main.ts"),
+const entryPoints = {
+    main: path.join(__dirname, "src", "main", "main.ts"),
+    preload: path.join(__dirname, "src", "common", "preload.ts"),
+    renderer: path.join(__dirname, "src", "renderer", "renderer.ts"),
+};
+
+const targets = {
+    main: "electron-main",
+    preload: "electron-preload",
+    renderer: "electron-renderer",
+};
+
+const baseConfig = {
     output: {
         filename: "[name].js",
-        path: path.join(__dirname, "bundle")
+        path: path.join(__dirname, "bundle"),
+    },
+    mode,
+    devtool,
+};
+
+const mainConfig = {
+    entry: {
+        main: entryPoints.main,
     },
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 loader: "ts-loader",
-            }
+            },
         ],
     },
     resolve: {
-        extensions: [".ts", ".js"]
+        extensions: [".ts", ".js"],
     },
-    mode,
-    target: "electron-main",
-    node: false,
-    devtool,
-}
+    target: targets.main,
+};
+
+const preloadConfig = {
+    entry: {
+        preload: entryPoints.preload,
+    },
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                loader: "ts-loader",
+            },
+        ],
+    },
+    resolve: {
+        extensions: [".ts", ".js"],
+    },
+    target: targets.preload,
+};
 
 const rendererConfig = {
-    entry: path.join(__dirname, "src", "renderer", "renderer.ts"),
-    output: {
-        filename: "renderer.js",
-        path: path.join(__dirname, "bundle")
+    entry: {
+        renderer: entryPoints.renderer,
     },
     module: {
         rules: [
             {
                 test: /\.vue$/,
-                loader: "vue-loader"
+                loader: "vue-loader",
             },
             {
                 test: /\.tsx?$/,
                 loader: "ts-loader",
                 options: {
-                    appendTsSuffixTo: [
-                        /\.vue$/
-                    ]
-                }
+                    appendTsSuffixTo: [/\.vue$/],
+                },
             },
             {
                 test: /\.css$/,
-                use: [
-                    "style-loader",
-                    "css-loader"
-                ]
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.png$/,
-                use: [
-                    "file-loader"
-                ]
-            }
+                use: ["file-loader"],
+            },
         ],
     },
     resolve: {
         alias: {
             "@": path.join(__dirname, "src", "renderer"),
-            "vue$": "vue/dist/vue.esm.js"
+            vue$: "vue/dist/vue.esm.js",
         },
-        extensions: [".ts", ".js"]
+        extensions: [".ts", ".js"],
     },
     plugins: [new VueLoaderPlugin()],
-    mode,
-    target: "electron-renderer",
-    node: false,
-    devtool,
+    target: targets.renderer,
 };
 
 module.exports = [
-    mainConfig,
-    rendererConfig,
+    Object.assign({}, baseConfig, mainConfig),
+    Object.assign({}, baseConfig, preloadConfig),
+    Object.assign({}, baseConfig, rendererConfig),
 ];
