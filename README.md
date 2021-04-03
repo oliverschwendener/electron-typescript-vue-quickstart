@@ -2,8 +2,8 @@
 
 ## Requirements
 
-- Node 12
-- Yarn
+-   Node 14
+-   Yarn
 
 ## Development
 
