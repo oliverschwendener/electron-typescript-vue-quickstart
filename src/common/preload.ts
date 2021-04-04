@@ -23,6 +23,11 @@ const bridge: Bridge = {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             listener: (event: IpcRendererEvent, ...args: any[]) => void
         ) => ipcRenderer.once(channel.toString(), listener),
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        invoke: <T>(channel: IpcChannel, ...arg: any) => {
+            return ipcRenderer.invoke(channel, arg) as Promise<T>;
+        }
     },
 };
 

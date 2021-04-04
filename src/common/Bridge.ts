@@ -19,6 +19,9 @@ export interface IpcRendererBridge {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         listener: (event: IpcRendererEvent, ...arg: any) => void
     ) => void;
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    readonly invoke: <T>(channel: IpcChannel, ...arg: any) => Promise<T>;
 }
 
 export interface Bridge {
