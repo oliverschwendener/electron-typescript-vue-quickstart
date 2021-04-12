@@ -5,12 +5,17 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import HelloWorld from "@/components/HelloWorld.vue";
+import { defineComponent } from "vue";
+import { IpcChannel } from "../common/IpcChannel";
+import HelloWorld from "./components/HelloWorld.vue";
 
-export default Vue.extend({
+export default defineComponent({
     components: {
         HelloWorld,
+    },
+
+    mounted() {
+        window.Bridge.ipcRenderer.send(IpcChannel.rendererReady);
     },
 });
 </script>

@@ -1,5 +1,5 @@
 const path = require("path");
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const { VueLoaderPlugin } = require("vue-loader");
 
 const isProductionBuild = process.env.NODE_ENV === "production";
 
@@ -94,8 +94,7 @@ const rendererConfig = {
     },
     resolve: {
         alias: {
-            "@": path.join(__dirname, "src", "renderer"),
-            vue$: "vue/dist/vue.esm.js",
+            vue: "@vue/runtime-dom"
         },
         extensions: [".ts", ".js"],
     },
