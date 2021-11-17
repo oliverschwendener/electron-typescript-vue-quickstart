@@ -1,8 +1,5 @@
 import { add } from "./core";
 
 describe(add.name, () => {
-    it("should add two numbers", () => {
-        const actual = add(1, 2);
-        expect(actual).toBe(3);
-    });
+    it("should add two numbers", () => expect(add(1, 2)).toBe(3));
 });

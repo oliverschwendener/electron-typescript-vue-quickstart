@@ -6,7 +6,7 @@ export class MainApplication {
     constructor(
         private readonly electronApp: App,
         private readonly ipcMain: IpcMain,
-        private readonly winodwManager: WindowManager
+        private readonly windowManager: WindowManager
     ) {}
 
     public start(): void {
@@ -15,9 +15,7 @@ export class MainApplication {
 
     private registerElectronAppEventListeners(): void {
         this.electronApp.on("ready", () => this.startApp());
-        this.electronApp.on("window-all-closed", () => {
-            this.electronApp.quit();
-        });
+        this.electronApp.on("window-all-closed", () => this.electronApp.quit());
     }
 
     private startApp(): void {
@@ -26,13 +24,13 @@ export class MainApplication {
     }
 
     private createBrowserWindow(): void {
-        this.winodwManager.createWindow();
+        this.windowManager.createWindow();
     }
 
     private registerIpcEventListeners(): void {
-        this.ipcMain.on(IpcChannel.rendererReady, () => {
-            // tslint:disable-next-line: no-console
-            console.log("renderer is ready");
-        });
+        // tslint:disable-next-line: no-console
+        this.ipcMain.on(IpcChannel.rendererReady, () =>
+            console.log("renderer is ready")
+        );
     }
 }
