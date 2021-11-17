@@ -28,7 +28,6 @@ export class MainApplication {
     }
 
     private registerIpcEventListeners(): void {
-        // tslint:disable-next-line: no-console
         this.ipcMain.on(IpcChannel.rendererReady, () =>
             console.log("renderer is ready")
         );
