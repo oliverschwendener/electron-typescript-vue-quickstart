@@ -15,7 +15,7 @@ export default defineComponent({
     },
 
     mounted() {
-        window.Bridge.ipcRenderer.send(IpcChannel.rendererReady);
+        this.ipcRenderer.send(IpcChannel.rendererReady);
     },
 });
 </script>

@@ -1,4 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 
-createApp(App).mount("#app");
+const vueApp = createApp(App);
+vueApp.config.globalProperties.ipcRenderer = window.ipcRenderer;
+vueApp.mount("#app");
