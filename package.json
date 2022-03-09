@@ -12,6 +12,11 @@
         "url": "https://github.com/oliverschwendener"
     },
     "description": "Electron Typescript Vue Quickstart",
+    "husky": {
+        "hooks": {
+            "pre-push": "yarn lint"
+        }
+    },
     "keywords": [
         "electron",
         "typescript",
@@ -38,6 +43,7 @@
         "electron-builder": "^22.14.13",
         "eslint": "^8.10.0",
         "file-loader": "^6.2.0",
+        "husky": "^7.0.4",
         "jest": "^27.5.1",
         "prettier": "^2.5.1",
         "style-loader": "^3.3.1",
