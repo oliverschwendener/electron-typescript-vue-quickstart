@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { IpcChannel } from "../common/IpcChannel";
 import HelloWorld from "./components/HelloWorld.vue";
+import { IpcChannel } from "../common/IpcChannel";
+import { defineComponent } from "vue";
 
 export default defineComponent({
     components: {
