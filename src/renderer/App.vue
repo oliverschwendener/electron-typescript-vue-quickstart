@@ -4,19 +4,13 @@
     </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import HelloWorld from "./components/HelloWorld.vue";
 import { IpcChannel } from "../common/IpcChannel";
-import { defineComponent } from "vue";
+import { onMounted } from "vue";
 
-export default defineComponent({
-    components: {
-        HelloWorld,
-    },
-
-    mounted() {
-        this.ipcRenderer.send(IpcChannel.rendererReady);
-    },
+onMounted(() => {
+    window.ipcRenderer.send(IpcChannel.rendererReady);
 });
 </script>
 

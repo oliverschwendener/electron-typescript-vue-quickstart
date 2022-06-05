@@ -4,14 +4,6 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-    data() {
-        return {
-            message: "Hello world",
-        };
-    },
-});
+<script lang="ts" setup>
+const message = "Hello world";
 </script>

@@ -2,12 +2,13 @@
     "compilerOptions": {
         "target": "es2015",
         "module": "commonjs",
-        "lib": ["dom", "es2017"],
+        "lib": ["dom", "ESNext"],
         "sourceMap": true,
         "strict": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
         "noUnusedLocals": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "jsx": "preserve"
     }
 }
